@@ -15,6 +15,7 @@ reloadPage();
 function onInputData(event) {
   dataForm = { email: email.value, message: message.value };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(dataForm));
+  console.log(dataForm)
 }
 
 function reloadPage() {
@@ -26,7 +27,7 @@ function reloadPage() {
 
 function onFormSubmit(event) {
   event.preventDefault(); 
-  
+  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   localStorage.removeItem(STORAGE_KEY);
   event.currentTarget.reset();
   dataForm = {};
